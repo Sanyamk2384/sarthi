@@ -51,7 +51,7 @@ const Settings = () => {
 
     return () => clearInterval(intervalId);
   }, []);
-
+  // eslint-disable-next-line no-unused-vars
   const SettingSection = ({ title, children, icon: Icon }) => (
     <div className="bg-slate-900 rounded-xl p-6 space-y-4 shadow-lg">
       <div className="flex items-center space-x-3 border-b border-slate-700 pb-3">

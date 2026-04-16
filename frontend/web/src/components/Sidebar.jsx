@@ -25,7 +25,7 @@ const Sidebar = ({
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState(defaultActiveTab);
   const [collapsedSections, setCollapsedSections] = useState({});
-  const [unreadAlerts, setUnreadAlerts] = useState(3); // Mock unread alerts count
+  const [unreadAlerts] = useState(3); // Mock unread alerts count
 
   // Define menu structure with permissions
   const menuStructure = {

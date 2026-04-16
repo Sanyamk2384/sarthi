@@ -76,7 +76,7 @@ const Heatmap = () => {
           heatmap.setMap(map);
         }
         setLoading(false);
-      } catch (err) {
+      } catch (_) {
         setError('Error rendering map');
         setLoading(false);
       }
