@@ -9,19 +9,19 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Deployed-brightgreen" alt="Status">
   <img src="https://img.shields.io/badge/License-MIT-blue" alt="License">
-  <img src="https://img.shields.io/badge/Team-CodeCanvas-orange" alt="Team">
+  <img src="https://img.shields.io/badge/Author-Sanyam-orange" alt="Team">
 </p>
 
 
 <div align="center">
 
-[![GitHub Issues](https://img.shields.io/github/issues/ArshTiwari2004/Recap)](https://github.com/ArshTiwari2004/Sarthi/issues)
-[![GitHub Forks](https://img.shields.io/github/forks/ArshTiwari2004/Recap)](https://github.com/ArshTiwari2004/Sarthi/network)
-[![GitHub Stars](https://img.shields.io/github/stars/ArshTiwari2004/Recap)](https://github.com/ArshTiwari2004/Sarthi/stargazers)
-[![Contributors](https://img.shields.io/github/contributors/ArshTiwari2004/Recap)](https://github.com/ArshTiwari2004/Sarthi/graphs/contributors)
-[![License](https://img.shields.io/github/license/ArshTiwari2004/Sarthi)](LICENSE)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ArshTiwari2004/Sarthi)
-![GitHub last commit](https://img.shields.io/github/last-commit/ArshTiwari2004/Sarthi)
+[![GitHub Issues](https://img.shields.io/github/issues/Sanyamk2384/Recap)](https://github.com/Sanyamk2384/Sarthi/issues)
+[![GitHub Forks](https://img.shields.io/github/forks/Sanyamk2384/Recap)](https://github.com/Sanyamk2384/Sarthi/network)
+[![GitHub Stars](https://img.shields.io/github/stars/Sanyamk2384/Recap)](https://github.com/Sanyamk2384/Sarthi/stargazers)
+[![Contributors](https://img.shields.io/github/contributors/Sanyamk2384/Recap)](https://github.com/Sanyamk2384/Sarthi/graphs/contributors)
+[![License](https://img.shields.io/github/license/Sanyamk2384/Sarthi)](LICENSE)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Sanyamk2384/Sarthi)
+![GitHub last commit](https://img.shields.io/github/last-commit/Sanyamk2384/Sarthi)
 
 </div>
 
@@ -265,7 +265,7 @@ To set up the project locally, follow these steps:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/CodeCanvas/Sarthi.git
+   git clone https://github.com/Sanyamk2384/Sarthi.git
    cd Sarthi
 
 ### 2. Install dependencies
