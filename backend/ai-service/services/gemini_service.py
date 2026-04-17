@@ -32,9 +32,13 @@ class GeminiService:
             'timeout': 60  # seconds
         }
         
+        import os
         # Configure API (your key will be secured via GCP Secret Manager in production)
-        self.api_key = api_key or "AIzaSyDijxDAdeA9DdQ4P4w5_e7woTvJHzYqAgI" 
-        genai.configure(api_key=self.api_key)
+        self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
+        if self.api_key:
+            genai.configure(api_key=self.api_key)
+        else:
+            self.logger.warning("No Gemini API Key provided")
         
         # Initialize models
         self.text_model = genai.GenerativeModel('gemini-pro')
