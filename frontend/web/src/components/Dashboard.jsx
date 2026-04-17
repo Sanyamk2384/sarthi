@@ -20,6 +20,8 @@ const Dashboard = () => {
   const [matchedVolunteers, setMatchedVolunteers] = useState([]);
   const [selectedNeed, setSelectedNeed] = useState(null);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
+  
+  const mapRef = useRef(null);
 
   // Load Priority Queue needs
   useEffect(() => {
@@ -113,6 +115,66 @@ const Dashboard = () => {
     LOW: "bg-yellow-500"
   };
 
+  useEffect(() => {
+    if (activeTab === 'overview') {
+      const loadGoogleMaps = () => {
+        const existingScript = document.getElementById('google-maps-script');
+        if (!existingScript) {
+          const script = document.createElement('script');
+          const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || ''; 
+          script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=visualization`;
+          script.id = 'google-maps-script';
+          script.async = true;
+          script.defer = true;
+          document.body.appendChild(script);
+
+          script.onload = () => {
+            renderDashboardMap();
+          };
+        } else {
+          // If script already exists but window.google might not be ready, wait a bit or render
+          if (window.google) {
+            renderDashboardMap();
+          } else {
+            existingScript.addEventListener('load', renderDashboardMap);
+          }
+        }
+      };
+
+      const renderDashboardMap = () => {
+        if (window.google && mapRef.current) {
+          const map = new window.google.maps.Map(mapRef.current, {
+            zoom: 10,
+            center: { lat: 13.0827, lng: 80.2707 },
+            mapTypeId: 'roadmap',
+            styles: [
+              { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+              { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+              { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+            ]
+          });
+
+          // Add markers for active alerts
+          const alertLocations = [
+            { lat: 13.0827, lng: 80.2707, title: "Severe Flooding - Chennai" },
+            { lat: 11.7480, lng: 79.7714, title: "Heavy Rain - Cuddalore" },
+            { lat: 12.5000, lng: 80.0000, title: "Cyclone Warning - Coastal Region" }
+          ];
+
+          alertLocations.forEach(alert => {
+            new window.google.maps.Marker({
+              position: { lat: alert.lat, lng: alert.lng },
+              map: map,
+              title: alert.title
+            });
+          });
+        }
+      };
+
+      loadGoogleMaps();
+    }
+  }, [activeTab]);
+
   return (
     <div className="bg-[#0F172A] min-h-screen text-white flex overflow-hidden">
       <Sidebar />
@@ -157,8 +219,11 @@ const Dashboard = () => {
                     <MapPin className="w-5 h-5 mr-2 text-blue-400" /> Disaster Map
                   </h2>
                 </div>
-                <div className="bg-[#0F172A] h-80 rounded-lg flex items-center justify-center">
-                  <p className="text-gray-500">Interactive Map Placeholder</p>
+                <div 
+                  ref={mapRef} 
+                  className="bg-[#0F172A] h-80 rounded-lg flex items-center justify-center overflow-hidden"
+                >
+                  <p className="text-gray-500">Loading Map...</p>
                 </div>
               </div>
 
