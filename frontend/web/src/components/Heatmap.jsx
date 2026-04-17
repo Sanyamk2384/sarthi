@@ -52,7 +52,7 @@ const Heatmap = () => {
           const map = new window.google.maps.Map(mapRef.current, {
             zoom: 11,
             center: { lat: 13.0827, lng: 80.2707 },
-            mapTypeId: 'dark_map',
+            mapTypeId: 'roadmap',
             styles: [
               { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
               { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
